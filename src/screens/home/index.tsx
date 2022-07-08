@@ -1,5 +1,5 @@
 import { View, Text } from 'react-native';
-import Logo from '../../components/logo';
+import Logo from '../../components/logo-header';
 import { styles } from './styles';
 
 const HomeScreen = (): JSX.Element => {
