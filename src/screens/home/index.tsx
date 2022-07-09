@@ -1,10 +1,12 @@
+import { useEffect } from 'react';
 import { View, ScrollView, FlatList } from 'react-native';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import DetailsModal from '../../components/details-modal';
 import FillerView from '../../components/filler-view';
 import Logo from '../../components/logo-header';
 import MenuList from '../../components/menu-list';
-import { selectModalValue } from '../../redux/selector/menu';
+import { fetchMenu } from '../../redux/actions/menu';
+import { selectMenu, selectModalValue } from '../../redux/selector/menu';
 import sizes from '../../styles/sizes';
 import { styles } from './styles';
 
@@ -246,10 +248,18 @@ const menus = [
 ]
 
 const HomeScreen = (): JSX.Element => {
+
+  const dispatch = useDispatch();
+  const menu = useSelector(selectMenu);
+
+  useEffect(() => {
+    dispatch(fetchMenu());
+  }, []);
+
   return (
     <View style={styles.container}>
       <FlatList 
-        data={menus} 
+        data={menu.menus}
         renderItem={({item, index}) => 
           <>
             <MenuList title={item.name} items={item.items}/>

@@ -1,10 +1,12 @@
 import { Item } from "../../../types/item";
-import { Menu } from "../../../types/menu";
+import { MenuItem } from "../../../types/menu";
+
+export interface Menu {
+  currency: string;
+  menus: Array<MenuItem>;
+}
 
 export interface MenuState {
-  menu: {
-    currency: string;
-    menus: Array<Menu>,
-  };
+  menu: Menu;
   modalValue: Item | null;
 }

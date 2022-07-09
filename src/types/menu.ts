@@ -1,6 +1,6 @@
 import { Item } from "./item";
 
-export interface Menu {
+export interface MenuItem {
   name: string;
   items: Item[];
 }
