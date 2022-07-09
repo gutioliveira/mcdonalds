@@ -2,7 +2,10 @@ import { MenuActions } from "../../actions/menu";
 import { MenuState } from "./types";
 
 const menuInitialState: MenuState = {
-  menuList: [],
+  menu: {
+    currency: '',
+    menus: [],
+  },
   modalValue: null,
 };
 
