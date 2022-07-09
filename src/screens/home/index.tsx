@@ -1,5 +1,6 @@
 import { View, ScrollView, FlatList } from 'react-native';
 import { useSelector } from 'react-redux';
+import DetailsModal from '../../components/details-modal';
 import FillerView from '../../components/filler-view';
 import Logo from '../../components/logo-header';
 import MenuList from '../../components/menu-list';
@@ -245,11 +246,6 @@ const menus = [
 ]
 
 const HomeScreen = (): JSX.Element => {
-
-  const modalValue = useSelector(selectModalValue);
-
-  console.log(`modalValue123`, modalValue);
-
   return (
     <View style={styles.container}>
       <FlatList 
@@ -260,6 +256,7 @@ const HomeScreen = (): JSX.Element => {
             {index === menus.length-1 && <FillerView height={sizes.spacing2}/>}
           </>
         }/>
+      <DetailsModal />
     </View>
   )
 };
