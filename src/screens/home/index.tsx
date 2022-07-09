@@ -1,7 +1,9 @@
 import { View, ScrollView, FlatList } from 'react-native';
+import { useSelector } from 'react-redux';
 import FillerView from '../../components/filler-view';
 import Logo from '../../components/logo-header';
 import MenuList from '../../components/menu-list';
+import { selectModalValue } from '../../redux/selector/menu';
 import sizes from '../../styles/sizes';
 import { styles } from './styles';
 
@@ -243,6 +245,10 @@ const menus = [
 ]
 
 const HomeScreen = (): JSX.Element => {
+
+  const modalValue = useSelector(selectModalValue);
+
+  console.log(`modalValue123`, modalValue);
 
   return (
     <View style={styles.container}>
