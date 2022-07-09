@@ -9,4 +9,5 @@ export interface Menu {
 export interface MenuState {
   menu: Menu;
   modalValue: Item | null;
+  loading: boolean;
 }

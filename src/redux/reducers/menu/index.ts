@@ -7,6 +7,7 @@ const menuInitialState: MenuState = {
     menus: [],
   },
   modalValue: null,
+  loading: false,
 };
 
 const menuReducer = (state: MenuState = menuInitialState, action) => {
@@ -20,6 +21,11 @@ const menuReducer = (state: MenuState = menuInitialState, action) => {
       return {
         ...state,
         modalValue: action.payload
+      }
+    case MenuActions.SET_LOADING_MENU:
+      return {
+        ...state,
+        loading: action.payload
       }
     default:
       return {

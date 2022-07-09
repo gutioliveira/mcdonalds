@@ -1,13 +1,9 @@
-import { ScaledSheet } from 'react-native-size-matters';
+import { ScaledSheet, vs } from 'react-native-size-matters';
 
 export const styles = ScaledSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-  },
-  menuContainer: {
-    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-  }
+  },
 });
