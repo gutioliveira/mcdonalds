@@ -1,4 +1,4 @@
-import { View, ScrollView } from 'react-native';
+import { View, ScrollView, FlatList } from 'react-native';
 import Logo from '../../components/logo-header';
 import MenuList from '../../components/menu-list';
 import { styles } from './styles';
@@ -244,12 +244,14 @@ const HomeScreen = (): JSX.Element => {
 
   return (
     <View style={styles.container}>
-      <ScrollView>
-        {
-          menus.map((m) => <MenuList />)
-        }
-        <View style={{height: 20}}/>
-      </ScrollView>
+      <FlatList 
+        data={menus} 
+        renderItem={({item, index}) => 
+          <>
+            <MenuList title={item.name} items={item.items}/>
+            {index === menus.length-1 && <View style={{height: 20}}/>}
+          </>
+        }/>
     </View>
   )
 };

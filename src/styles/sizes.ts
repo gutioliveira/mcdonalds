@@ -7,5 +7,9 @@ export const dimensions = {
 
 export default {
   borderWidth1: 0.5,
-  spacing1: 20,
+  spacing2: 20,
+  spacing1: 10,
+  borderRadius1: 2.5,
+  title1: 20,
+  title2: 25,
 }

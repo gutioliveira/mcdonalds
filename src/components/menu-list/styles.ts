@@ -6,6 +6,8 @@ export const styles = StyleSheet.create({
     width: '100%',
   },
   title: {
-    margin: sizes.spacing1,
+    margin: sizes.spacing2,
+    fontWeight: 'bold',
+    fontSize: sizes.title2
   }
 });
