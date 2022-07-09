@@ -1,6 +1,6 @@
-import { StyleSheet } from 'react-native';
+import { ScaledSheet } from 'react-native-size-matters';
 
-export const styles = StyleSheet.create({
+export const styles = ScaledSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
