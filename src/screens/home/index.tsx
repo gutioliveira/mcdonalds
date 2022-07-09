@@ -1,6 +1,8 @@
 import { View, ScrollView, FlatList } from 'react-native';
+import FillerView from '../../components/filler-view';
 import Logo from '../../components/logo-header';
 import MenuList from '../../components/menu-list';
+import sizes from '../../styles/sizes';
 import { styles } from './styles';
 
 const menus = [
@@ -249,7 +251,7 @@ const HomeScreen = (): JSX.Element => {
         renderItem={({item, index}) => 
           <>
             <MenuList title={item.name} items={item.items}/>
-            {index === menus.length-1 && <View style={{height: 20}}/>}
+            {index === menus.length-1 && <FillerView height={sizes.spacing2}/>}
           </>
         }/>
     </View>

@@ -1,16 +1,25 @@
-import { View, Text, ScrollView, FlatList } from 'react-native';
+import { View, Text, FlatList } from 'react-native';
 import MenuItem from '../menu-item';
 import { styles } from './styles';
 import sizes from '../../styles/sizes';
+import { Props } from './types';
 
-const MenuList = ({items, title}): JSX.Element => {
+const MenuList = ({items, title} : Props): JSX.Element => {
 
   const paddingSize = sizes.spacing2;
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{title}</Text>
-      <FlatList style={{paddingLeft: paddingSize}} horizontal renderItem={({item}) => <MenuItem item={item} paddingSize={paddingSize}/>} data={items}/>
+      <FlatList 
+        contentContainerStyle={{paddingLeft: paddingSize}} 
+        horizontal 
+        renderItem={({item, index}) =>
+          <MenuItem
+            item={item}
+            paddingSize={paddingSize}/>
+        }
+        data={items}/>
     </View>
   );
 };
