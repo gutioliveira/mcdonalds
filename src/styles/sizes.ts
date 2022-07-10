@@ -1,11 +1,5 @@
 import { Dimensions } from "react-native"
 import { vs } from 'react-native-size-matters';
-/* Figma Design = 414 width
-                = 160 item width
-
-   Current Design = 375 width
-                  = 145 item width
-*/
 
 export const dimensions = {
   width: Dimensions.get('window').width,

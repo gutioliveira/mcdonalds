@@ -1,4 +1,3 @@
-// import { rest } from "../../../rest";
 import axios from "axios";
 import { Item } from "../../../types/item";
 import { Menu } from "../../reducers/menu/types";
