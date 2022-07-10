@@ -19,6 +19,8 @@
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
+    "@testing-library/jest-native": "^4.0.5",
+    "@testing-library/react-native": "^10.1.1",
     "@types/react": "~17.0.21",
     "@types/react-native": "~0.67.6",
     "react-test-renderer": "^17.0.2",
@@ -35,7 +37,8 @@
   "private": true,
   "name": "mcdonalds",
   "jest": {
-    "preset": "jest-expo",
+    "preset": "@testing-library/react-native",
+    "setupFilesAfterEnv": ["@testing-library/jest-native/extend-expect"],
     "transformIgnorePatterns": [
       "node_modules/(?!((jest-)?react-native|@react-native(-community)?)|expo(nent)?|@expo(nent)?/.*|@expo-google-fonts/.*|react-navigation|@react-navigation/.*|@unimodules/.*|unimodules|sentry-expo|native-base|react-native-svg)"
     ]

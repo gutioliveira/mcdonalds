@@ -1,11 +1,11 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import { render } from '@testing-library/react-native';
 
 import FillerView from '../../../src/components/filler-view';
 
-describe('<App />', () => {
-  it('has 1 child', () => {
-    const tree = renderer.create(<FillerView />).toJSON();
-    expect(tree.children.length).toBe(1);
+describe('<FillerView />', () => {
+  it('Render with height and width', () => {
+    const {debug, getByTestId} = render(<FillerView height={10} width={10}/>);
+    expect(getByTestId('filler-view-id').props.style).toStrictEqual({width: 10, height: 10});
   });
 });
