@@ -2,14 +2,14 @@ import { Modal, SafeAreaView, Image, View, Text } from "react-native";
 import GestureRecognizer from "react-native-swipe-gestures";
 import { useDispatch, useSelector } from "react-redux";
 import { setModalValue } from "../../redux/actions/menu";
-import { selectModalValue } from "../../redux/selector/menu";
-import colors from "../../styles/colors";
-import sizes from "../../styles/sizes";
+import { selectModalValue, selectMenu } from "../../redux/selector/menu";
+import { currencyFormat } from "../../utils/formatters";
 import { styles } from "./styles";
 
 const DetailsModal = (): JSX.Element | null => {
 
   const modalValue = useSelector(selectModalValue);
+  const menu = useSelector(selectMenu);
   const dispatch = useDispatch();
 
   const onClose = (): void => {
@@ -36,7 +36,7 @@ const DetailsModal = (): JSX.Element | null => {
             <Image style={styles.image} source={{uri: modalValue.url}}/>
             <Text style={styles.title}>{modalValue.name}</Text>
             <View style={styles.priceContainer}>
-              <Text style={styles.priceText}>{modalValue.price}</Text>
+              <Text style={styles.priceText}>{currencyFormat(modalValue.price, menu.currency)}</Text>
             </View>
             <Text style={styles.description}>{modalValue.description}</Text>
           </View>
