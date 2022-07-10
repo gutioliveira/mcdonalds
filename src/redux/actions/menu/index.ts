@@ -1,3 +1,5 @@
+// import { rest } from "../../../rest";
+import axios from "axios";
 import { Item } from "../../../types/item";
 import { Menu } from "../../reducers/menu/types";
 
@@ -25,12 +27,10 @@ export const setLoadingMenu = (payload: boolean) => ({
 export const fetchMenu = (): any =>
   (dispatch: any) => {
     dispatch(setLoadingMenu(true));
-    fetch('https://mcdonalds.trio.dev/menu').then((res) => {
-      res.json().then((r) => {
-        dispatch(setMenu(r));
-        dispatch(setLoadingMenu(false));
-      }).catch((e) => {
-        dispatch(setLoadingMenu(false));
-      });
+    axios.get('https://mcdonalds.trio.dev/menu').then(({data}) => {
+      dispatch(setMenu(data));
+      dispatch(setLoadingMenu(false));
+    }).catch((e) => {
+      dispatch(setLoadingMenu(false));
     });
   }

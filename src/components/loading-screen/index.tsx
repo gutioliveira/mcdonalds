@@ -3,7 +3,7 @@ import { styles } from './styles';
 
 const LoadingScreen = (): JSX.Element => {
   return (
-    <View style={styles.container}>
+    <View testID='loading-screen' style={styles.container}>
       <ActivityIndicator size="large"/>
     </View>
   )

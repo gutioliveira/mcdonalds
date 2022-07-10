@@ -1,7 +1,6 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { render, fireEvent } from '@testing-library/react-native';
-import * as reactRedux from 'react-redux';
 
 import MenuItem from '../../../src/components/menu-item';
 
