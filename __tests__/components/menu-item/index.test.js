@@ -8,19 +8,41 @@ import configureStore from 'redux-mock-store';
 
 describe('<MenuItem />', () => {
 
-  const initialState = { output: 10 };
+  const initialState = {
+    menu: {
+      loading: false,
+      menu: {
+        currency: 'USD',
+        menus: [{name: 'Bevareges', items: []}]
+      }
+    }
+  };
   const mockStore = configureStore();
   // const dispatch = jest.fn();
   let store;
+  let mockDispatch;
+
+  beforeEach(() => {
+    store = mockStore(initialState);
+    mockDispatch = jest.fn();
+    store.dispatch = mockDispatch;
+  });
 
   afterEach(() => {
     jest.clearAllMocks();
   });
 
+  it('Renders properly', () => {
+    const {getByText, getByTestId, debug} = render(
+      <Provider store={store}>
+        <MenuItem item={{name: 'name', description: 'description', price: 1, url: 'url'}}/>
+      </Provider>
+    );
+    expect(getByText('name')).not.toBeNull();
+    expect(getByTestId('menu-item-image').props.source).toStrictEqual({uri: 'url'});
+  });
+
   it('Dispatches action when clicking', () => {
-    store = mockStore(initialState);
-    const mockDispatch = jest.fn();
-    store.dispatch = mockDispatch;
     const {getByTestId} = render(
       <Provider store={store}>
         <MenuItem item={{name: 'name', description: 'description', price: 1, url: 'url'}}/>
