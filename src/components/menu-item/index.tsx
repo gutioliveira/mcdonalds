@@ -10,7 +10,7 @@ const MenuItem = ({item}: Props): JSX.Element => {
 
   return (
     <>
-      <TouchableOpacity onPress={() => dispatch(setModalValue(item))}>
+      <TouchableOpacity testID='menu-item-touchable' onPress={() => dispatch(setModalValue(item))}>
         <View style={styles.container}>
           <Image 
             style={styles.image}
