@@ -19,7 +19,7 @@ describe('<Home />', () => {
       loading,
       menu: {
         currency: 'USD',
-        menus: [{name: 'Bevareges', items: []}]
+        menus: [{name: 'Name', items: []}]
       }
     }
   });
@@ -29,7 +29,7 @@ describe('<Home />', () => {
   });
 
   it('Fetch data', async () => {
-    const res = { data: { currency: 'USD', menus: [{name: 'Bevareges', items: []}]} };
+    const res = { data: { currency: 'USD', menus: [{name: 'Name', items: []}]} };
     axios.get.mockResolvedValue(res);
     const {findByText} = render(
       <Provider store={realStore}>
@@ -37,7 +37,7 @@ describe('<Home />', () => {
       </Provider>
     );
     await waitFor(() => {
-      const text = findByText('Bevareges');
+      const text = findByText('Name');
       expect(text).not.toBeNull();
     });
   });
@@ -63,6 +63,6 @@ describe('<Home />', () => {
         <Home/>
       </Provider>
     );
-    expect(findByText('Bevareges')).not.toBeNull();
+    expect(findByText('Name')).not.toBeNull();
   });
 });

@@ -26,6 +26,7 @@ const DetailsModal = (): JSX.Element | null => {
       onSwipeDown={ onClose }
     >
       <Modal
+        testID="details-modal-modal-id"
         animationType="slide"
         transparent
         statusBarTranslucent
@@ -33,7 +34,7 @@ const DetailsModal = (): JSX.Element | null => {
         <View style={styles.modalContainer}>
           <SafeAreaView style={{flex: 0}}/>
           <View style={styles.container}>
-            <Image style={styles.image} source={{uri: modalValue.url}}/>
+            <Image testID="details-modal-image" style={styles.image} source={{uri: modalValue.url}}/>
             <Text style={styles.title}>{modalValue.name}</Text>
             <View style={styles.priceContainer}>
               <Text style={styles.priceText}>{currencyFormat(modalValue.price, menu.currency)}</Text>
